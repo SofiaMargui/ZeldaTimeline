@@ -3,28 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline Zelda</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>TimeLine</title>
+    <style>
+        /* Estilos para el timeline */
+    </style>
+      <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="div-timeline">
-        <!-- Aquí se agregarán los eventos desde JS -->
-    </div>
+    <div class="container">
+        <div class="top-section">
+            <h1>Timeline</h1>
+            <p> 
+                From its humble beginnings on the NES to its evolution into sprawling open-world epics, 
+                the Zelda franchise has captivated players with its timeless blend of action, 
+                puzzle-solving, and exploration. Dive into the legendary saga through this chronological 
+                timeline of its iconic games.
+            </p>
+            <img src="/IMGS/Untitled_Artwork 139.png" alt="" id="cloud-one">
+            <img src="/IMGS/Untitled_Artwork 139.png" alt="" id="cloud-two">
+            <img src="/IMGS/Untitled_Artwork 138.png" alt="" id="cloud-three">
 
-    <div id="addForm">
-        <form id="addGame">
-          <label for="date">Year:</label>
-          <input id="date" type="number" name="date" />
-          <label for="title">Title:</label>
-          <input id="title" type="text" name="title" />
-          <label for="image">URL de la imagen:</label>
-          <input id="image" type="text" name="image" />
-          <label for="text">Description:</label>
-          <textarea id="text" name="description"></textarea>
-          <button type="submit">Add Event</button>
-        </form>
+            <div class="image-container">
+                <img src="/IMGS/ZeldaEspada.png" alt="Logo de Zelda">
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="line">
+              
+            </div>
+        </div>
     </div>
    
+    
+    <div class="footer part">
+        <div id="addForm">
+            <form id="addGame">
+              <label for="date">Year:</label>
+              <input id="date" type="number" name="date" />
+              <label for="title">Title:</label>
+              <input id="title" type="text" name="title" />
+              <label for="image">URL de la imagen:</label>
+              <input id="image" type="text" name="image" />
+              <label for="text">Description:</label>
+              <textarea id="text" name="description"></textarea>
+              <button type="submit">Add Event</button>
+            </form>
+        </div>
+        <img src="IMGS/FooterZeldaV2.png" alt="">
+    </div>
+
     <script src="./timelineZelda.js"></script>
 </body>
+
+
 </html>
