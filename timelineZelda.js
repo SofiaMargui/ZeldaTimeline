@@ -10,23 +10,31 @@ const fetchEvents = async () => {
     }
 };
 
-const showEvents = (events) => {
+const renderEvents = (events) => {
     const sortedEvents = events.sort((a, b) => a.date -b.date);
 
-    const timeline= document.querySelector(`#div-timeline`);
-    timeline.innerHTML = "" ;
+    const timeline= document.querySelector(`.timeline`);
+    timeline.innerHTML = "";
 
     sortedEvents.forEach((event) => {
-        const timeline = document.querySelector(`#div-timeline`);
-        const eventElement = document.createElement(`div`);
+        const timeline = document.querySelector(`.timeline`);
+        const eventElement = document.createElement(`section`);
         eventElement.classList.add(`event`);
         eventElement.innerHTML = `
-            <div class="event-info">
-                <h2 class="class-h2">${event.date}</h2>
-                <h3 class="class-h3">${event.title}</h3>
-                <p>${event.text}</p>
-                <img class="class-image" src="${event.image}" alt ="Esto es una imagen de ${event.title}">
-            </div>    
+            <div class= "event-info">
+                <div class= "date">
+                    <h2 class= "h2">${event.date}</h2>
+                </div>
+                <div class= "title">    
+                    <h3 class= "h3">${event.title}</h3>
+                </div>
+                <div class= "text">    
+                    <p class= "p" >${event.text}</p>
+                </div>
+                <div class= "image">
+                    <img class="class-image" src="${event.image}" alt ="Esto es una imagen de ${event.title}">
+                </div>    
+            </div>     
             `;
 
         timeline.appendChild(eventElement);       
@@ -35,15 +43,17 @@ const showEvents = (events) => {
     });
 };
 
-fetchEvents().then((events) => showEvents(events));
+fetchEvents().then((events) => renderEvents(events));
 
-const form = document.getElementById("addGame");
+// Setup event listener
+const form = document.getElementById(`addGame`);
 form.onsubmit = async (event) => {
-    event.preventDefault();
-    const formData = Object.fromEntries(new FormData(event.target).entries());
-    event.target.reset();
+  event.preventDefault();
+  const formData = Object.fromEntries(new FormData(event.target).entries());
+  event.target.reset();
 
-    const events = await fetchEvents();
-    events.push({...formData, date: parseInt(formData.date)});
-    showEvents(events);
+  const events = await fetchEvents();
+  events.push({ ...formData, date: parseInt(formData.date) });
+  renderEvents(events);
 };
+

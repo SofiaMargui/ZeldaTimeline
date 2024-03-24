@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="top-section">
+   <!-- <audio class="audio" src="source/Song_of_time.ogg" controls autoplay> </audio> -->
+<header>
+   
+    <div class="top-section">
             <h1>Timeline</h1>
             <p> 
                 From its humble beginnings on the NES to its evolution into sprawling open-world epics, 
@@ -18,24 +20,28 @@
             </p>
             <div class="image-container">
                 <img src="/IMGS/ZeldaEspada.png" alt="Logo de Zelda">
-            </div>
-    <div id="div-timeline">
+             </div>
     </div>
-    <div id="addForm">
-        <form id="addGame">
-          <label for="date">Year:</label>
-          <input id="date" type="number" name="date" />
-          <label for="title">Title:</label>
-          <input id="title" type="text" name="title" />
-          <label for="image">URL de la imagen:</label>
-          <input id="image" type="text" name="image" />
-          <label for="text">Description:</label>
-          <textarea id="text" name="description"></textarea>
-          <button type="submit">Add Event</button>
-        </form>
-    </div>
+</header>
+<main>
+<section class="timeline">
+</section>
+<section class="addForm">
+    <form id="addGame">
+        <label for="date">Year</label>
+        <input id="date" type="number" name="date" required/>
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" required/>
+        <label for="image">URL de la imagen</label>
+        <input id="image" type="text" name="image" />
+        <label for="text">Description</label>
+        <textarea id="text" name="description" required></textarea>
+        <button type="submit">Add Event</button>
+    </form>
+</section>
+</main>
     <footer class="footer">
-        <img src="/IMGS/FooterZeldaV2.png" alt="Footer Hyrule" width="2387" height="1008">
+        <img src="/IMGS/FooterZeldaV2.png" alt="Footer Hyrule">
     </footer>
    
     <script src="./timelineZelda.js"></script>

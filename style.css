@@ -1,95 +1,177 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilos del body (todo) */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
+    font-size: 120%;
+    height: 100%;
     background-color: #87CEEB;
     color: #fefefe;
+    padding: 2em;
 }
 
-.container{
-    padding: 2rem;
-    margin: 0 auto;
-    min-height: 10000px;
-    overflow-y: auto;
-}
-
+/* Donde dice timeline y la foto etc */
 .top-section {
     text-align: center;
-    padding: 4rem 0 2rem;
+    padding: 10px; 
     max-width: 600px;
     margin: 0 auto;
+    overflow-y: auto; 
 }
 
+/* Solo la palabra Timeline */
 .top-section h1 {
-    margin-bottom: 5px;
     font-family: 'Triforce';
-    font-size: 60px;
-    padding-bottom: 20px;
+    font-size: 90px;
+    padding-bottom: 25px;
 }
 
+/* Parrafo introductorio */
 .top-section p {
     margin-top: 0;
     margin-bottom: 20px;
 }
 
+/* Container Z espada */
 .image-container {
-    text-align: center; 
-    margin-bottom: 20px; 
-    ;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
+/* Imagen Z dentro del container */
 .image-container img {
     margin-top: 0px;
-    max-width: 100%; 
-    height: 200px;
+    max-width: 100%;
+    height: 250px;
     width: auto;
 }
 
-.game-img{
-    width: 350px;
-    max-height: 450px;
+/* Organizar tl */
+.timeline {
+    margin: 5em auto;
+    max-width: 34.15em;
 }
 
-#div-timeline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
+/* Event styles */
 .event {
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.8); 
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 80%;
-    max-width: 600px;
+    max-width: 34em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    position: relative;
+    view-timeline-name: --image; 
+    view-timeline-axis: block; 
+
+    animation-timeline: --image; 
+    animation-name: show;
+
+    animation-range: entry 25% cover 50%; 
+    animation-fill-mode: both; 
+    
 }
 
+/* Event info styles */
 .event-info {
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
     font-family: 'Helvetica';
-    color: #000000; 
-    font-size: 15px; 
+    color: #000000;
+    font-size: 15px;
+    border-radius: 1em;
+    padding: 1.5em;
+
 }
 
-.class-h2 {
+/* Fecha */
+.h2 {
+    display:flex;
+    justify-content: center;
+    line-height: 27px;
     color: #38b6f1;
-    margin-bottom: 5px;
     font-family: 'Triforce';
 }
 
-.class-h3 {
+/* Nombre de cada Juego */
+.h3 {
+    display:flex;
+    justify-content: center; 
     color: #38b6f1;
-    margin-bottom: 10px;
     font-family: 'Triforce';
 }
 
+.image {
+    display:flex;
+   justify-content: center;
+   view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: show;
+
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+ }
+ 
+ /* Class image styles */
+ .class-image {
+     margin: auto;
+     border-radius: 20px;
+ }
+
+/* Estilos derecha */
+.event:nth-child(even) {
+    border-left: 3px solid #ffffff;
+    padding-left: 3em;
+    transform: translateX(17em);
+}
+
+/* Estilos izquierda */
+.event:nth-child(odd) {
+    border-right: 3px solid #ffffff;
+    padding-right: 3em;
+    transform: translateX(-17em);
+}
+
+/* Linea blanca */
+.event:nth-child(even)::before,
+.event:nth-child(odd)::before {
+    content: '';
+    background: #ffffff;
+    width: 3em;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.event:nth-child(even)::before {
+    left: 0;
+}
+
+.event:nth-child(odd)::before {
+    right: 0;
+}
+
+/* Bolitas temporalmente sin color*/
+.event:nth-child(even) div::before,
+.event:nth-child(odd) div::before {
+    content: '';
+    /* background: #fff;*/
+   /* box-shadow: 0 0 0.5em #d85a0510;*/
+    width: 0.8em;
+    height: 0.8em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50px;
+}
+
+.event:nth-child(even) div::before {
+    left: -0.5em;
+}
+
+.event:nth-child(odd) div::before {
+    right: -0.5em;
+}
+
+/* imagenes */
 .class-image {
     max-width: 100%;
     height: auto;
@@ -97,6 +179,7 @@ body {
     margin-top: -5px;
 }
 
+/* Formulario */
 #addForm {
     margin-top: 20px;
 }
@@ -123,12 +206,12 @@ textarea {
 }
 
 #addGame {
-    margin: 20px auto; 
-    background-color: rgba(255, 255, 255, 0.8); 
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 75%; 
+    width: 75%;
     max-width: 600px;
     display: flex;
     flex-direction: column;
@@ -136,19 +219,20 @@ textarea {
     padding: 20px;
 }
 
-label{
+label {
     text-align: center;
     color: #38b6f1;
     font-family: 'Triforce';
 }
 
-input{
+input {
     margin: 10px 0;
     padding: 10px;
     border: none;
     border-radius: 15px;
 }
-textarea{
+
+textarea {
     margin: 10px 0;
     padding: 10px;
     border: none;
@@ -156,7 +240,7 @@ textarea{
 }
 
 button[type="submit"] {
-    background: #38b6f1 ;
+    background: #38b6f1;
     color: rgb(255, 255, 255);
     font-family: "Triforce";
     font-size: 1.5em;
@@ -164,19 +248,60 @@ button[type="submit"] {
     padding: 15px 20px;
     border-radius: 11px;
     cursor: pointer;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 
+/* Footer styles */
 .footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: -1; 
+    z-index: -1;
 }
 
+/* Footer image Hyrule */
 .footer img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* animacion aparecer */
+@keyframes show {
+    from {
+        opacity: 0.2;
+        scale: 40%
+    }
+    
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+/* Media query para pantallas */
+@media screen and (max-width: 1150px) {
+    .timeline {
+        width: 80vw;
+    }
+    .timeline .event {
+        width: 100%;
+        transform: none;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+    }
+    .timeline .event::before {
+        width: 3px;
+        height: 4em;
+        top: -2em;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .timeline .event div::before {
+        top: -0.5em;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
