@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Triforce";
+    src: url("source/The Wild Breath of Zelda.otf")
+}
+
 /* Estilos del body (todo) */
 body {
     margin: 0;
